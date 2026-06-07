@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>3D RGB LED Generator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 3D RGB LED Generator</h1>
+            <p>Convert images to 3D LED designs</p>
+        </div>
+
+        <div class="section">
+            <label>Upload Image (JPG, PNG)</label>
+            <input type="file" id="imageInput" accept="image/*" />
+            <div id="imagePreview" class="preview"></div>
+        </div>
+
+        <div class="section">
+            <label>LED Style</label>
+            <select id="ledStyle">
+                <option value="neon">Neon Glow</option>
+                <option value="metallic">Metallic</option>
+                <option value="chrome">Chrome</option>
+                <option value="glass">Glass Effect</option>
+                <option value="plasma">Plasma</option>
+            </select>
+        </div>
+
+        <div class="section">
+            <label>Color Mode</label>
+            <select id="colorMode">
+                <option value="rgb">RGB (Dynamic)</option>
+                <option value="single">Single Color</option>
+                <option value="gradient">Gradient</option>
+                <option value="auto">Auto (From Image)</option>
+            </select>
+        </div>
+
+        <div class="section" id="colorSection" style="display:none;">
+            <label>Primary Color</label>
+            <div class="color-picker">
+                <input type="color" id="primaryColor" value="#FF0000" />
+                <input type="color" id="secondaryColor" value="#00FF00" />
+                <input type="color" id="tertiaryColor" value="#0000FF" />
+            </div>
+        </div>
+
+        <div class="section">
+            <label>3D Effect Intensity (1-10)</label>
+            <input type="range" id="intensity" min="1" max="10" value="7" />
+            <span id="intensityValue">7</span>
+        </div>
+
+        <div class="section">
+            <label>Glow Effect</label>
+            <input type="checkbox" id="glowEffect" checked />
+            <label for="glowEffect">Enable Glow</label>
+        </div>
+
+        <div class="section">
+            <label>Resolution</label>
+            <select id="resolution">
+                <option value="1024">1024x1024</option>
+                <option value="2048">2048x2048</option>
+                <option value="4096">4096x4096 (High Quality)</option>
+            </select>
+        </div>
+
+        <div class="button-group">
+            <button id="previewBtn" class="btn btn-preview">👁️ Preview</button>
+            <button id="generateBtn" class="btn btn-primary">⚡ Generate 3D LED</button>
+        </div>
+
+        <div id="preview3D" class="preview-3d" style="display:none;"></div>
+
+        <div class="button-group">
+            <button id="exportVectorBtn" class="btn btn-secondary" style="display:none;">📥 Export as Vector</button>
+            <button id="exportPngBtn" class="btn btn-secondary" style="display:none;">📥 Export as PNG</button>
+        </div>
+
+        <div id="status" class="status"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
